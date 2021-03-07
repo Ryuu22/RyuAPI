@@ -7,5 +7,5 @@ Very lightweight pure php RESTAPI framework/boilerplate.
 3. Avoid using external libraries or dependencies.
 
 # Roadmap for version 1.1
-- [ ] JWT tool for creating and checking JWTs without using external libraries.
+- [x] JWT tool for creating and checking JWTs without using external libraries.
 - [ ] Provide an easy way to use queries and access to databases from objects.
