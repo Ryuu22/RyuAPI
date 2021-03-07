@@ -1,12 +1,11 @@
 <?php 
-
 class Database
 {
 	//DatabaseCredentials
-	private $host = "";
-    private $db_name = "";
-    private $user_name = "";
-    private $password = "";
+	private $host = "localhost";
+    private $db_name = "arirank";
+    private $user_name = "root";
+    private $password = "root";
     public $conn;
 
     // get the database connection

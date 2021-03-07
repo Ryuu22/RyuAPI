@@ -2,48 +2,28 @@
 
 //Config global variables here
 
-//You can access whatever you put in here by writting "include_once '../config/core.php';" anywhere.
+//You can access whatever you put in here by writting "include_once '../_core/config.php';" anywhere.
+
+// show error reporting
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// set your default time-zone
+date_default_timezone_set('Asia/Seoul');
+
 $secretKey = <<< EOD
 -----BEGIN OPENSSH PRIVATE KEY-----
-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
+APP SECRET
 -----END OPENSSH PRIVATE KEY-----
 EOD;
+
+$iss = "Your back end name";
+$aud = "Your Client";
+
+$issued_at = time();
+
+$expiration_time = $issued_at + (60 * 60); // valid for 1 hour
+$issuer = "http://localhost/";
 
 $example = array('key' => "value", );
 
