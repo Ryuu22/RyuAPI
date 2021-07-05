@@ -33,7 +33,6 @@ class JWT
 			'iat' => time(),
 			'exp' => $expiration_time,
 		]);
-		print($payload);
 
 		// Encode Header
 		$base64UrlHeader = $this->base64UrlEncode($header);
@@ -45,7 +44,16 @@ class JWT
 		return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;	
 	}
 	
-	function validateJWT($jwt,$iss,$secret)
+	/**
+	 * Validates JWT and returns containing data.
+	 * 
+	 * @param string $jwt the jwt received from the client.
+	 * @param string $iss the name of the issuer
+	 * @param string $secret the private key stored in the server
+	 * 
+	 * @return array Contains a boolean 'error'. And a message indicating the status of the operation.
+	 */
+	function validateJWT(string $jwt, string $iss, string $secret)
 	{
 		// split the token
 		$tokenParts = explode('.', $jwt);
@@ -75,7 +83,8 @@ class JWT
 		$signatureValid = ($base64UrlSignature === $signatureProvided);
 		if($signatureValid){
 			return array('error' => false,
-						'message'=> 'Valid Token' );
+						'message'=> 'Valid Token',
+						'data' => $payloadObject->data );
 		}
 	}
 }
